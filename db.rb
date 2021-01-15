@@ -3,6 +3,8 @@ require 'json'
 require_relative 'dbImport'
 
 class DB
+  attr_accessor :data
+
   def initialize
     @root = 'tmp'
     @data = {}
@@ -20,6 +22,6 @@ class DB
     basename = File.basename(fileName, '.xml')
     dbName = "#{@root}/#{basename}.json"
     update(fileName, dbName) # if !File.exists?(dbName)
-    @data = {"#{fileName}": JSON.parse(File.read(dbName))} if @data.key?(fileName)
+    @data[fileName] = JSON.parse(File.read(dbName)) if !@data.key?(fileName)
   end
 end
