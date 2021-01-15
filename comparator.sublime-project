@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+  "build_systems":
+  [
+    {
+      "name": "custom run",
+      "shell_cmd": "ruby example.rb"
+    }
+  ]
+}
